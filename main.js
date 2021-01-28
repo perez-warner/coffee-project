@@ -41,11 +41,16 @@ let allDark = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ]
-var tbody = document.querySelector('#coffees');
+
+
+var coffeeList = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+var renderCoffees = renderCoffees(coffees);
+ for(var i = 0; i < renderCoffees.length; i++){
+     coffeeList.appendChild(renderCoffees[i]);
+ }
 
-tbody.innerHTML = renderCoffees(coffees);
 
 submitButton.addEventListener('click', updateCoffees);
 
@@ -53,21 +58,22 @@ submitButton.addEventListener('click', updateCoffees);
 // COFFEES//
 
 function renderCoffee(coffee) {
-    var html = '<tr class="coffee">';
-    html += '<td>' + coffee.id + '</td>';
-    html += '<td>' + coffee.name + '</td>';
-    html += '<td>' + coffee.roast + '</td>';
-    html += '</tr>';
+    var div = document.createElement('div');
+    var h3 = document.createElement('h3');
+    h3.innerText = coffee.name;
 
-    return html;
+    div.appendChild(h3);
+    console.log(div);
+    return div;
 }
 
 function renderCoffees(coffees) {
-    var html = '';
+    var coffeeDivs =
     for(var i = coffees.length - 1; i >= 0; i--) {
-        html += renderCoffee(coffees[i]);
+        coffeeDivs += renderCoffee(coffees[i]);
     }
-    return html;
+    console.log(coffeeDivs);
+    return coffeeDivs;
 }
 
 function updateCoffees(e) {
@@ -79,7 +85,8 @@ function updateCoffees(e) {
             filteredCoffees.push(coffee);
         }
     });
-    tbody.innerHTML = renderCoffees(filteredCoffees);
+    coffeeList.appendChild(renderCoffees(filteredCoffees));
+    console.log(coffeeList);
 }
 /*
 // ALL BELOW IS THE START OF JS SKELETON JUST BECAUSE I GOT TIRED OF BEING ON THE HTML PAGE

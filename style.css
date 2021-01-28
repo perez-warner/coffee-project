@@ -4,6 +4,12 @@ table {
 }
 
 td, th {
-    border: 1px solid black;
-    padding: 5px 10px;
+
+
+}
+
+.form-box {
+   padding: .5em 2em;
+    display: flex;
+    flex-direction: column;
 }
