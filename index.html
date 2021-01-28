@@ -25,22 +25,24 @@
 	 <!-- main container with forms -->
 	<main class="container">
 		<div class="row">
-			<section class="col-12 order-2">
-				<div id="coffees"></div>
+			<section class="col-12 order-1 col-md-6 order-md-0">
+				<div class="d-flex align-content-around flex-wrap col-md-4">
+					<div id="coffees"></div>
+				</div>
 			</section>
 
 
 
-			<section class="col-12 col-6">
-				<form>
+			<section class="col-12 col-md-6">
+				<form class="form-horizontal">
 				<div class="form-box">
 					<h3 class="text-center">Select Your Favorite Coffee</h3>
 					<label for="roast-selection">Roast</label>
-					<select>
-						<option>All</option>
-						<option>light</option>
-						<option>Medium</option>
-						<option>Dark</option>
+					<select id="roast-selection">
+						<option value="all" selected>All</option>
+						<option value="light">light</option>
+						<option value="medium">Medium</option>
+						<option value="dark">Dark</option>
 					</select>
 				</div>
 				<div class="form-box">
@@ -59,10 +61,10 @@
 					<h3 class="text-center">Add A Coffee</h3>
 					<label for="roast-selection">Roast</label>
 					<select id="roast-selection">
-						<option>All</option>
-						<option>light</option>
-						<option>Medium</option>
-						<option>Dark</option>
+						<option value="all">All</option>
+						<option value="light">light</option>
+						<option value="medium">Medium</option>
+						<option value="dark">Dark</option>
 					</select>
 				</div>
 				<div class="form-box">

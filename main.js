@@ -46,10 +46,11 @@ let allDark = [
 var coffeeList = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
+
 renderCoffees(coffees);
 
 
-//submitButton.addEventListener('click', updateCoffees);
+submitButton.addEventListener('click', updateCoffees);
 
 
 // COFFEES//
@@ -57,10 +58,13 @@ renderCoffees(coffees);
 function renderCoffee(coffee) {
     var div = document.createElement('div');
     var h3 = document.createElement('h3');
+    var p = document.createElement('h5');
     h3.innerText = coffee.name;
+    p.innerText = coffee.roast;
 
     div.appendChild(h3);
-    console.log(div);
+    h3.appendChild(p);
+
     return div;
 }
 
@@ -71,18 +75,18 @@ function renderCoffees(coffees) {
 
 }
 
-// function updateCoffees(e) {
-//     e.preventDefault(); // don't submit the form, we just want to update the data
-//     var selectedRoast = roastSelection.value;
-//     var filteredCoffees = [];
-//     coffees.forEach(function(coffee) {
-//         if (coffee.roast === selectedRoast) {
-//             filteredCoffees.push(coffee);
-//         }
-//     });
-//     coffeeList.appendChild(renderCoffees(filteredCoffees));
-//     console.log(coffeeList);
-// }
+function updateCoffees(e) {
+    e.preventDefault(); // don't submit the form, we just want to update the data
+    var selectedRoast = roastSelection.value;
+    var filteredCoffees = [];
+    coffees.forEach(function(coffee) {
+        if (coffee.roast === selectedRoast) {
+            filteredCoffees.push(coffee);
+        }
+    });
+    coffeeList.appendChild(renderCoffees(filteredCoffees));
+    console.log(coffeeList);
+}
 /*
 // ALL BELOW IS THE START OF JS SKELETON JUST BECAUSE I GOT TIRED OF BEING ON THE HTML PAGE
 // INCOMPLETE
