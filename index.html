@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Coffee Project</title>
@@ -29,8 +29,8 @@
 <!-- main container with forms -->
 <main class="container">
     <div class="row">
-        <section class="col-12 order-1 col-md-6 order-md-0">
-            <div class="d-flex align-content-around flex-wrap col-md-4">
+        <section class="col-12 d-none d-md-block col-md-6 order-md-0">
+            <div>
                 <div id="coffees"></div>
             </div>
         </section>
@@ -42,26 +42,26 @@
                     <h3 class="text-center">Select Your Favorite Coffee</h3>
                     <label for="roast-selection">Roast</label>
                     <select id="roast-selection">
-                        <option value="all" selected>All</option>
-                        <option value="light">light</option>
-                        <option value="medium">Medium</option>
-                        <option value="dark">Dark</option>
+                        <option selected>All</option>
+                        <option>light</option>
+                        <option>Medium</option>
+                        <option>Dark</option>
                     </select>
                 </div>
                 <div class="form-box"><!--AUTOCOMPLETE DIV 1-->
                     <label for="search">Coffee Name</label>
-                    <input id="search" class="form-control" onkeyup="searchBar()" type="text">
+                    <input id="search" class="form-control" type="text">
 
                 </div>
                 <div class="form-box">
-                    <button id="submit-new" type="button" class="submit btn btn-primary">Submit</button>
+                    <button id="search-btn" type="button" class="coffee-input submit btn btn-primary">Submit</button>
                 </div>
             </form>
 
             <hr>
             <div>
                 <form>
-                    <div class="form-box autocomplete">
+                    <div class="form-box">
                         <h3 class="text-center">Add A Coffee</h3>
                         <label for="roast-selection">Roast</label>
                         <select id="roast-selection">
@@ -73,7 +73,7 @@
                     </div>
                     <div class="form-box"><!--AUTOCOMPLETE DIV 2-->
                         <label for="coffeeName">Coffee Name</label>
-                        <input id="coffeeName"  class="form-control" onkeyup="searchBar()" type="text">
+                        <input id="coffeeName"  class="form-control" type="text">
                     </div>
                     <div class="form-box">
                         <button type="button" class="submit btn btn-primary">Submit</button>

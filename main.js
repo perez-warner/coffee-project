@@ -18,7 +18,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-/* ARE WE USING THESE???
+/*
 let allLight = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -41,57 +41,108 @@ let allDark = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ]
-*/
 
-//CASEY CODE BELOW//
+ */
+
+
+
 var coffeeList = document.querySelector('#coffees');
-var submitButton = document.querySelector('#submit');
+var searchBtn = document.querySelector('#search-btn');
 var roastSelection = document.querySelector('#roast-selection');
+var coffeeSelection = document.querySelector('#coffee-input');
+var search = document.querySelector('#search')
 
-renderCoffees(coffees);
+// renderCoffees(coffees);
 
 
-submitButton.addEventListener('click', updateCoffees);
+
 
 
 // COFFEES//
-
+/*
 function renderCoffee(coffee) {    //classList
     var div = document.createElement('div');
-    var h3 = document.createElement('h3');
-    var p = document.createElement('h5');
-    h3.innerText = coffee.name;
-    p.innerText = coffee.roast;
+    var coffeeName = document.createElement('div');
+    var coffeeRoast = document.createElement('div');
+    coffeeName.innerText = coffee.name;
+    coffeeRoast.innerText = coffee.roast;
+    coffeeRoast.style.color = 'grey';
+    coffeeName.style.fontSize = '2em';
 
-    div.appendChild(h3);
-    h3.appendChild(p);
+    coffeeName.style.display = 'inline';
+    coffeeRoast.style.display = 'inline';
 
+    div.setAttribute('data-id', coffee.id);
+    div.appendChild(coffeeName);
+    div.appendChild(coffeeRoast);
     return div;
 }
 
-function renderCoffees(coffees) {
-    for(var i = coffees.length - 1; i >= 0; i--) {
-        coffeeList.appendChild(renderCoffee(coffees[i]));
-    }
-
+ */
+function renderCoffee(coffee) {
+    return `<h3 class="header">${coffee.name}</h3> 
+            <p>${coffee.roast}</p>`
 }
-//END CASEY'S CODE THAT I STILL DON"T COMPLETELY UNDERSTAND BUT NOT SMART ENOUGH TO REFACTOR//
+
+
+// function renderCoffees(coffees) {
+//   /*  coffees = coffees.sort((a,b) => {return b.id - a.id;});
+//     console.log(coffees); */
+//     var html = '';
+//     for(var i = 0; i < coffees.length - 1; i++) {
+//         html += (renderCoffee(coffees[i]));
+//     }
+//     return html;
+// }
+
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+function renderCoffees(coffees) {
+   const coffeesHtml = coffees.reduce((stringBuilder, coffee) => {
+        return stringBuilder.concat(renderCoffee(coffee))
+    }, '')
+    return coffeesHtml;
+}
+
 
 function updateCoffees(e) {   //same format for searching for name
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
-    var filteredCoffees = [];
-    coffees.forEach(function(coffee) {
-        if (coffee.roast === selectedRoast) {
-            filteredCoffees.push(coffee);
+    var filteredCoffees;
+        if (selectedRoast === 'All') {
+           filteredCoffees = coffees;
+        }else {
+            filteredCoffees = filterByRoast(selectedRoast.toLowerCase())
         }
-    });
-    coffeeList.appendChild(renderCoffees(filteredCoffees));
-    console.log(coffeeList);
+    coffeeList.innerHTML = renderCoffees(filteredCoffees);
+
 }
 
-//          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
+function filterByName(value) {
+    return coffees.filter(coffee => coffee.name.toLowerCase().search(value) > -1)
+}
 
+function filterByRoast(value) {
+    return coffees.filter(coffee => {
+        return   coffee.roast.toLowerCase().search(value) > -1
+    })
+
+}
+
+function searchQuery(e) {
+    const searchString = e.target.value;
+    coffeeList.innerHTML = renderCoffees(filterByName(searchString))
+}
+
+
+console.log(coffeeList);
+coffeeList.innerHTML = renderCoffees(coffees)
+searchBtn.addEventListener('click', updateCoffees);
+
+search.addEventListener('keyup', searchQuery);
+//          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
+/*
 function searchBar() {
 
     var input, filter, tbody, div, txtValue;
@@ -113,6 +164,8 @@ function searchBar() {
     }
 }
 
+*/
+
 //           END AUTOCOMPLETE
 
 /*var coffeeName = document.getElementById('coffeeName').value;
@@ -127,15 +180,6 @@ actualCoffeeArray.push({id: coffees.length + 1, name: coffeeName, roast: roastSe
 */
 
 /*
-// ALL BELOW IS THE START OF JS SKELETON JUST BECAUSE I GOT TIRED OF BEING ON THE HTML PAGE
-// INCOMPLETE
 
-var allLight
-var allMedium
-var allDark
-var allSpecial
-var allSmallSize
-var allMediumSize
-var allLargeSize
 
 */
