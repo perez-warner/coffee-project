@@ -16,14 +16,11 @@ table {
 
 https://developer.mozilla.org/en-us/docs/Web/API/Element/classList
 
- St like div.classList.add("col-md-6")
-  */
+St like div.classList.add("col-md-6")
+
+*/
 
 /*
-.autocomplete {
-  the container must be positioned relative:
-position: relative;
-display: inline-block;
-}
+SEE BELOW LINK FOR CSS INVOLVING AUTOCOMPLETE IF NEEDED
 https://www.w3schools.com/howto/howto_js_autocomplete.asp
  */

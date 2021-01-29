@@ -18,7 +18,7 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-
+/* ARE WE USING THESE???
 let allLight = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -41,8 +41,9 @@ let allDark = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ]
+*/
 
-//CASEY CODE BELOW. KEEP
+//CASEY CODE BELOW//
 var coffeeList = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -74,6 +75,7 @@ function renderCoffees(coffees) {
     }
 
 }
+//END CASEY'S CODE THAT I STILL DON"T COMPLETELY UNDERSTAND BUT NOT SMART ENOUGH TO REFACTOR//
 
 function updateCoffees(e) {   //same format for searching for name
     e.preventDefault(); // don't submit the form, we just want to update the data
@@ -88,23 +90,42 @@ function updateCoffees(e) {   //same format for searching for name
     console.log(coffeeList);
 }
 
-function logMatchingCoffees(){
-    let allCoffees = [];
-    if(filteredCoffees.length < 1){
-        filteredCoffees = allOfOurCoffees;
-    }
-    if(coffeeName.value.length > 0) {
-        filteredCoffees.forEach((coffee) => {
-            if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
-                allCoffees.push(coffee);
-            }
-        });
-        allCoffeesSpot.innerHTML = renderCoffees(allCoffees);
-    } else {
-        allCoffeesSpot.innerHTML = renderCoffees(filteredCoffees);
+//          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
+
+function searchBar() {
+
+    var input, filter, tbody, div, txtValue;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    tbody = document.getElementById("coffees");
+    div = tbody.getElementsByTagName('div');   //TBODY?
+
+
+    // FOR LOOP TO SORT THROUGH ITEMS IN AUTOCOMPLETE
+
+    for (var i = 0; i < div.length; i++) {
+        txtValue = div[i].textContent || div[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            div[i].style.display = "";
+        } else {
+            div[i].style.display = "none";
+        }
     }
 }
-coffeeName.addEventListener("input", logMatchingCoffees);
+
+//           END AUTOCOMPLETE
+
+/*var coffeeName = document.getElementById('coffeeName').value;
+
+var actualCoffeeArray = coffees;
+
+if (localStorage.getItem('coffees') !== null){
+    actualCoffeeArray = JSON.parse(localStorage.getItem('coffees'));
+}
+
+actualCoffeeArray.push({id: coffees.length + 1, name: coffeeName, roast: roastSelect});
+*/
+
 /*
 // ALL BELOW IS THE START OF JS SKELETON JUST BECAUSE I GOT TIRED OF BEING ON THE HTML PAGE
 // INCOMPLETE

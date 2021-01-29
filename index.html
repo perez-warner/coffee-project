@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <!--JQUERY SCRIPT FOR AUTOCOMPLETE---NOT USED AS OF CURRENT VERSION-->
+    <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
+    <!--<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
 
 </head>
 <body>
@@ -45,12 +48,13 @@
                         <option value="dark">Dark</option>
                     </select>
                 </div>
-                <div class="form-box">
-                    <label for="coffee-name">Coffee Name</label>
-                    <input id="coffee-name" name="coffee-name" type="text">
+                <div class="form-box"><!--AUTOCOMPLETE DIV 1-->
+                    <label for="search">Coffee Name</label>
+                    <input id="search" class="form-control" onkeyup="searchBar()" type="text">
+
                 </div>
                 <div class="form-box">
-                    <button type="button" class="submit btn btn-primary">Submit</button>
+                    <button id="submit-new" type="button" class="submit btn btn-primary">Submit</button>
                 </div>
             </form>
 
@@ -67,9 +71,9 @@
                             <option value="dark">Dark</option>
                         </select>
                     </div>
-                    <div class="form-box">
-                        <label for="coffee-name">Coffee Name</label>
-                        <input id="coffee-name" name="coffee-name" type="text">
+                    <div class="form-box"><!--AUTOCOMPLETE DIV 2-->
+                        <label for="coffeeName">Coffee Name</label>
+                        <input id="coffeeName"  class="form-control" onkeyup="searchBar()" type="text">
                     </div>
                     <div class="form-box">
                         <button type="button" class="submit btn btn-primary">Submit</button>
