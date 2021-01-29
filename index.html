@@ -1,85 +1,84 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-	<meta charset="UTF-8">
-	<title>Coffee Project</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Coffee Project</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
-	<div>
-		<!-- BEGIN MAIN PART OF SITE -->
-		<nav>
-			<!-- NAVBAR RIGHT HERE!!!!-->
-		</nav>
-	</div>
+<div>
+    <!-- BEGIN MAIN PART OF SITE -->
+    <nav>
+        <!-- NAVBAR RIGHT HERE!!!!-->
+    </nav>
+</div>
 <!--HEADER W FLUID JUMBOTRON -->
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-4 text-center">Coffee!</h1>
-			<p class="lead"></p>
-		</div>
-	</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 text-center">Coffee!</h1>
+        <p class="lead"></p>
+    </div>
+</div>
 
-	 <!-- main container with forms -->
-	<main class="container">
-		<div class="row">
-			<section class="col-12 order-1 col-md-6 order-md-0">
-				<div class="d-flex align-content-around flex-wrap col-md-4">
-					<div id="coffees"></div>
-				</div>
-			</section>
+<!-- main container with forms -->
+<main class="container">
+    <div class="row">
+        <section class="col-12 order-1 col-md-6 order-md-0">
+            <div class="d-flex align-content-around flex-wrap col-md-4">
+                <div id="coffees"></div>
+            </div>
+        </section>
 
 
+        <section class="col-12 col-md-6">
+            <form class="form-horizontal">
+                <div class="form-box">
+                    <h3 class="text-center">Select Your Favorite Coffee</h3>
+                    <label for="roast-selection">Roast</label>
+                    <select id="roast-selection">
+                        <option value="all" selected>All</option>
+                        <option value="light">light</option>
+                        <option value="medium">Medium</option>
+                        <option value="dark">Dark</option>
+                    </select>
+                </div>
+                <div class="form-box">
+                    <label for="coffee-name">Coffee Name</label>
+                    <input id="coffee-name" name="coffee-name" type="text">
+                </div>
+                <div class="form-box">
+                    <button type="button" class="submit btn btn-primary">Submit</button>
+                </div>
+            </form>
 
-			<section class="col-12 col-md-6">
-				<form class="form-horizontal">
-				<div class="form-box">
-					<h3 class="text-center">Select Your Favorite Coffee</h3>
-					<label for="roast-selection">Roast</label>
-					<select id="roast-selection">
-						<option value="all" selected>All</option>
-						<option value="light">light</option>
-						<option value="medium">Medium</option>
-						<option value="dark">Dark</option>
-					</select>
-				</div>
-				<div class="form-box">
-					<label for="coffee-name">Coffee Name</label>
-					<input id="coffee-name" name="coffee-name" type="text">
-				</div>
-				<div class="form-box">
-					<button type="button" class="submit btn btn-primary">Submit</button>
-				</div>
-			</form>
-
-		<hr>
-		<div>
-			<form>
-				<div class="form-box">
-					<h3 class="text-center">Add A Coffee</h3>
-					<label for="roast-selection">Roast</label>
-					<select id="roast-selection">
-						<option value="all">All</option>
-						<option value="light">light</option>
-						<option value="medium">Medium</option>
-						<option value="dark">Dark</option>
-					</select>
-				</div>
-				<div class="form-box">
-					<label for="coffee-name">Coffee Name</label>
-					<input id="coffee-name" name="coffee-name" type="text">
-				</div>
-				<div class="form-box">
-					<button type="button" class="submit btn btn-primary">Submit</button>
-				</div>
-			</form>
-		</div>
-			</section>
-		</div>
-	</main>
-
+            <hr>
+            <div>
+                <form autocomplete="off" style="width">
+                    <div class="form-box autocomplete">
+                        <h3 class="text-center">Add A Coffee</h3>
+                        <label for="roast-selection">Roast</label>
+                        <select id="roast-selection">
+                            <option value="all">All</option>
+                            <option value="light">light</option>
+                            <option value="medium">Medium</option>
+                            <option value="dark">Dark</option>
+                        </select>
+                    </div>
+                    <div class="form-box">
+                        <label for="coffee-name">Coffee Name</label>
+                        <input id="coffee-name" name="coffee-name" type="text">
+                    </div>
+                    <div class="form-box">
+                        <button type="button" class="submit btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</main>
 
 
 <!-- size
@@ -94,10 +93,16 @@
 
     </div> -->
 
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="main.js"></script>
 
 
 </body>

@@ -11,3 +11,19 @@ table {
     flex-direction: column;
 }
 
+
+ /* !!! Tips from Zach on 28 JAN 2021 !!!
+
+https://developer.mozilla.org/en-us/docs/Web/API/Element/classList
+
+ St like div.classList.add("col-md-6")
+  */
+
+/*
+.autocomplete {
+  the container must be positioned relative:
+position: relative;
+display: inline-block;
+}
+https://www.w3schools.com/howto/howto_js_autocomplete.asp
+ */

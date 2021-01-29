@@ -42,7 +42,7 @@ let allDark = [
     {id: 14, name: 'French', roast: 'dark'},
 ]
 
-
+//CASEY CODE BELOW. KEEP
 var coffeeList = document.querySelector('#coffees');
 var submitButton = document.querySelector('#submit');
 var roastSelection = document.querySelector('#roast-selection');
@@ -55,7 +55,7 @@ submitButton.addEventListener('click', updateCoffees);
 
 // COFFEES//
 
-function renderCoffee(coffee) {
+function renderCoffee(coffee) {    //classList
     var div = document.createElement('div');
     var h3 = document.createElement('h3');
     var p = document.createElement('h5');
@@ -75,7 +75,7 @@ function renderCoffees(coffees) {
 
 }
 
-function updateCoffees(e) {
+function updateCoffees(e) {   //same format for searching for name
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees = [];
