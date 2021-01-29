@@ -87,6 +87,24 @@ function updateCoffees(e) {   //same format for searching for name
     coffeeList.appendChild(renderCoffees(filteredCoffees));
     console.log(coffeeList);
 }
+
+function logMatchingCoffees(){
+    let allCoffees = [];
+    if(filteredCoffees.length < 1){
+        filteredCoffees = allOfOurCoffees;
+    }
+    if(coffeeName.value.length > 0) {
+        filteredCoffees.forEach((coffee) => {
+            if (coffee.name.toLowerCase().includes(coffeeName.value.toLowerCase())) {
+                allCoffees.push(coffee);
+            }
+        });
+        allCoffeesSpot.innerHTML = renderCoffees(allCoffees);
+    } else {
+        allCoffeesSpot.innerHTML = renderCoffees(filteredCoffees);
+    }
+}
+coffeeName.addEventListener("input", logMatchingCoffees);
 /*
 // ALL BELOW IS THE START OF JS SKELETON JUST BECAUSE I GOT TIRED OF BEING ON THE HTML PAGE
 // INCOMPLETE
