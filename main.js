@@ -2,6 +2,7 @@
 
 //BELOW IS FROM EXISTING CODE. MOVING ALL VARS (GLOBAL) UP TOP FOR READABILITY? I DON"T KNOW. IT MADE SENSE AT THE TIME!!
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
+//VAR COFFEES ARRAY OF OBJECTS WITH PROPERTIES OF ID, NAME, ROAST
 var coffees = [
     {id: 1, name: 'Light City', roast: 'light'},
     {id: 2, name: 'Half City', roast: 'light'},
@@ -44,7 +45,7 @@ let allDark = [
 
  */
 
-
+//THE BELOW QUERYSELECTORS ARE GRABBING THE FIRST ELEMENT IN THE DOCUMENT FROM THE ID(#)
 
 var coffeeList = document.querySelector('#coffees');
 var searchBtn = document.querySelector('#search-btn');
@@ -79,8 +80,9 @@ function renderCoffee(coffee) {    //classList
 }
 
  */
+//STRING LITERAL ' ' is the string text. $ is the start of the expression.
 function renderCoffee(coffee) {
-    return `<h3 class="header">${coffee.name}</h3> 
+    return `<h3 class="header">${coffee.name}</h3> <!-- I SEE THIS IN THE BROWSER BUT WHY NOT IN THE ACTUAL HTML??? -->
             <p>${coffee.roast}</p>`
 }
 
@@ -97,7 +99,9 @@ function renderCoffee(coffee) {
 
 
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
-
+//REDUCE - The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
+//STRINGBUILDER - StringBuilder objects are like String objects, except that they can be modified.
+//???IS THIS CREATING coffee?
 function renderCoffees(coffees) {
    const coffeesHtml = coffees.reduce((stringBuilder, coffee) => {
         return stringBuilder.concat(renderCoffee(coffee))
@@ -105,8 +109,8 @@ function renderCoffees(coffees) {
     return coffeesHtml;
 }
 
-
-function updateCoffees(e) {   //same format for searching for name
+//innerHTML property sets or returns the HTML content (inner HTML) of an element.
+function updateCoffees(e) {   //same format for searching for name according to Zach
     e.preventDefault(); // don't submit the form, we just want to update the data
     var selectedRoast = roastSelection.value;
     var filteredCoffees;
@@ -118,7 +122,7 @@ function updateCoffees(e) {   //same format for searching for name
     coffeeList.innerHTML = renderCoffees(filteredCoffees);
 
 }
-
+//The filter() method creates an array filled with all array elements that pass a test (provided as a function).
 function filterByName(value) {
     return coffees.filter(coffee => coffee.name.toLowerCase().search(value) > -1)
 }
@@ -129,7 +133,11 @@ function filterByRoast(value) {
     })
 
 }
-
+//e = event object being passed
+//e.target = The target event property returns the element that triggered the event.
+// The target property gets the element on which the event originally occurred
+//e.target.value gives the value of the target event
+//innerHTML property sets or returns the HTML content (inner HTML) of an element.
 function searchQuery(e) {
     const searchString = e.target.value;
     coffeeList.innerHTML = renderCoffees(filterByName(searchString))
@@ -141,6 +149,13 @@ coffeeList.innerHTML = renderCoffees(coffees)
 searchBtn.addEventListener('click', updateCoffees);
 
 search.addEventListener('keyup', searchQuery);
+
+
+// FILTER ROAST SEARCH ///
+// WHEN ROAST IS SELECTED, WE NEED ONLY THE COFFEES IN THAT ROAST TO AUTOPOPULATE IN SEARCH
+// ??? USE VARS FOR LIGHT/MED/DARK TO RUN
+
+
 //          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
 /*
 function searchBar() {
