@@ -52,6 +52,7 @@ var searchBtn = document.querySelector('#search-btn');
 var roastSelection = document.querySelector('#roast-selection');
 var coffeeSelection = document.querySelector('#coffee-input');
 var search = document.querySelector('#search')
+var dropdown = document.querySelector('#dropdown')
 
 // renderCoffees(coffees);
 
@@ -149,6 +150,8 @@ coffeeList.innerHTML = renderCoffees(coffees)
 searchBtn.addEventListener('click', updateCoffees);
 
 search.addEventListener('keyup', searchQuery);
+
+dropdown.addEventListener('mouseover', updateCoffees);
 
 
 // FILTER ROAST SEARCH ///
