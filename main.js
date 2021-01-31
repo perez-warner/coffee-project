@@ -19,31 +19,6 @@ var coffees = [
     {id: 13, name: 'Italian', roast: 'dark'},
     {id: 14, name: 'French', roast: 'dark'},
 ];
-/*
-let allLight = [
-    {id: 1, name: 'Light City', roast: 'light'},
-    {id: 2, name: 'Half City', roast: 'light'},
-    {id: 3, name: 'Cinnamon', roast: 'light'},
-]
-
-let allMedium = [
-    {id: 4, name: 'City', roast: 'medium'},
-    {id: 5, name: 'American', roast: 'medium'},
-    {id: 6, name: 'Breakfast', roast: 'medium'},
-]
-
-let allDark = [
-    {id: 7, name: 'High', roast: 'dark'},
-    {id: 8, name: 'Continental', roast: 'dark'},
-    {id: 9, name: 'New Orleans', roast: 'dark'},
-    {id: 10, name: 'European', roast: 'dark'},
-    {id: 11, name: 'Espresso', roast: 'dark'},
-    {id: 12, name: 'Viennese', roast: 'dark'},
-    {id: 13, name: 'Italian', roast: 'dark'},
-    {id: 14, name: 'French', roast: 'dark'},
-]
-
- */
 
 //THE BELOW QUERYSELECTORS ARE GRABBING THE FIRST ELEMENT IN THE DOCUMENT FROM THE ID(#)
 
@@ -52,7 +27,7 @@ var searchBtn = document.querySelector('#search-btn');
 var roastSelection = document.querySelector('#roast-selection');
 var coffeeSelection = document.querySelector('#coffee-input');
 var search = document.querySelector('#search')
-var dropdown = document.querySelector('#dropdown')
+//var dropdown = document.querySelector('#dropdown')
 
 // renderCoffees(coffees);
 
@@ -130,7 +105,10 @@ function filterByName(value) {
 
 function filterByRoast(value) {
     return coffees.filter(coffee => {
-        return   coffee.roast.toLowerCase().search(value) > -1
+        const coffeeRoast = coffee.roast.toLowerCase();
+        const selectedRoast = value.toLowerCase();
+        const coffeeResult = coffeeRoast.search(selectedRoast)
+        return coffeeResult > -1
     })
 
 }
@@ -151,12 +129,19 @@ searchBtn.addEventListener('click', updateCoffees);
 
 search.addEventListener('keyup', searchQuery);
 
-dropdown.addEventListener('mouseover', updateCoffees);
-
-
 // FILTER ROAST SEARCH ///
-// WHEN ROAST IS SELECTED, WE NEED ONLY THE COFFEES IN THAT ROAST TO AUTOPOPULATE IN SEARCH
-// ??? USE VARS FOR LIGHT/MED/DARK TO RUN
+// WHEN ROAST IS SELECTED, WE NEED ONLY THE COFFEES IN THAT ROAST TO DISPLAY ON THE LEFT W/O HITTING SUBMIT
+//
+//dropdown.addEventListener('select', updateCoffees);
+function searchRoast(e) {
+    const searchRoastString = e.target.value;
+    coffeeList.innerHTML = renderCoffees(filterByRoast(searchRoastString))
+}
+const dropDown = document.getElementById('roast-selection');
+dropDown.addEventListener('change', searchRoast)
+    //console.log(event.target.value)
+
+
 
 
 //          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
