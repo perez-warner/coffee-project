@@ -1,8 +1,19 @@
+.jumbotron {
+    background: url('images/header.jpg') center;
+    height: 20em;
+    font-family: 'Amatic SC', cursive;
+    color: white;
+}
+
 table {
     border-collapse: collapse;
     margin: 15px 0;
 }
 
+body{
+    background: rgb(217, 209, 209);
+    font-family: 'Staatliches', cursive;
+}
 
 
 .form-box {
@@ -10,6 +21,7 @@ table {
     display: flex;
     flex-direction: column;
 }
+
 
 
 

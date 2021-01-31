@@ -58,7 +58,7 @@ function renderCoffee(coffee) {    //classList
  */
 //STRING LITERAL ' ' is the string text. $ is the start of the expression.
 function renderCoffee(coffee) {
-    return `<h3 class="header">${coffee.name}</h3> <!-- I SEE THIS IN THE BROWSER BUT WHY NOT IN THE ACTUAL HTML??? -->
+    return `<h3 class="">${coffee.name}</h3> <!-- I SEE THIS IN THE BROWSER BUT WHY NOT IN THE ACTUAL HTML??? -->
             <p>${coffee.roast}</p>`
 }
 
