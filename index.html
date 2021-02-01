@@ -15,7 +15,26 @@
 <div> <!-- DO WE NEED THIS DIV IF WE HAVE THE JUMBOTRON? -->
     <!-- BEGIN MAIN PART OF SITE -->
     <nav>
-        <!-- NAVBAR RIGHT HERE!!!!-->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">Bad Wolf</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </nav>
 </div> <!-- DO WE NEED THIS DIV IF WE HAVE THE JUMBOTRON?  -->
 <!--HEADER W FLUID JUMBOTRON -->
@@ -63,38 +82,43 @@
                     <div class="form-box">
                         <h3 class="text-center">Add A Coffee</h3>
                         <label for="roast-selection">Roast</label>
-                        <select id="roast-selection">
+                        <select id="add-roast">
                             <option value="all">All</option>
                             <option value="light">light</option>
                             <option value="medium">Medium</option>
                             <option value="dark">Dark</option>
                         </select>
                     </div>
-                    <div class="form-box"><!--AUTOCOMPLETE DIV 2-->
+                    <div class="form-box">
                         <label for="coffeeName">Coffee Name</label>
                         <input id="coffeeName"  class="form-control" type="text">
                     </div>
                     <div class="form-box">
-                        <button type="button" class="submit btn btn-dark">Submit</button>
+                        <button type="button" id="add-btn" class="submit btn btn-dark">Submit</button>
                     </div>
                 </form>
             </div>
         </section>
     </div>
 </main>
+<article>
+    <section class="about-us d-none d-md-block">
+        <h1 class="text-center">About us</h1>
+        <hr>
+        <p class="text-center">Hey there, old friend. We are so happy you stopped by!
+        <br>We are a family owned and operated company since 1963.
+        <br>Roast coming from all over Earth handled with care.
+        <br>If you're still reading our secret Roast is still available
+        <br>inspect our site to find the secret message. 
+        <br>Our Coffee beans collected through time and space.
+        <br>Each with their own story to tell and we promise it's a good one
+        </p>
 
 
-<!-- size
-    <div class="customerInputSize">
-        <h3>SIZE MATTERS</h3>
-        <select id="customerSize">
-            <option value="">How big do you want it baby?</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-        </select>
 
-    </div> -->
+    </section>
+</article>
+
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
