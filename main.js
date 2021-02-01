@@ -25,7 +25,6 @@ var coffees = [
 var coffeeList = document.querySelector('#coffees');
 var searchBtn = document.querySelector('#search-btn');
 var roastSelection = document.querySelector('#roast-selection');
-var coffeeSelection = document.querySelector('#coffee-input');
 var search = document.querySelector('#search')
 //var dropdown = document.querySelector('#dropdown')
 
@@ -58,7 +57,7 @@ function renderCoffee(coffee) {    //classList
  */
 //STRING LITERAL ' ' is the string text. $ is the start of the expression.
 function renderCoffee(coffee) {
-    return `<h3 class="">${coffee.name}</h3> <!-- I SEE THIS IN THE BROWSER BUT WHY NOT IN THE ACTUAL HTML??? -->
+    return `<h3>${coffee.name}</h3> <!-- I SEE THIS IN THE BROWSER BUT WHY NOT IN THE ACTUAL HTML??? -->
             <p>${coffee.roast}</p>`
 }
 
@@ -123,12 +122,11 @@ function searchQuery(e) {
 }
 
 
-console.log(coffeeList);
+// console.log(coffeeList);
 coffeeList.innerHTML = renderCoffees(coffees)
 searchBtn.addEventListener('click', updateCoffees);
-
 search.addEventListener('keyup', searchQuery);
-
+addedCoffee.addEventListener('click' , )
 // FILTER ROAST SEARCH ///
 // WHEN ROAST IS SELECTED, WE NEED ONLY THE COFFEES IN THAT ROAST TO DISPLAY ON THE LEFT W/O HITTING SUBMIT
 //
@@ -142,6 +140,10 @@ dropDown.addEventListener('change', searchRoast)
     //console.log(event.target.value)
 
 
+
+
+
+console.log('you found it! Enter CODE:TimeVortex in your cart to unlock our secret roast')
 
 
 //          START AUTOCOMPLETE CODE   --- STILL WORKING ON MAKING THE SECOND TEXT INPUT SEARCHABLE ---
