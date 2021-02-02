@@ -1,5 +1,6 @@
 "use strict"
 
+
 // from http://www.ncausa.org/About-Coffee/Coffee-Roasts-Guide
 // VAR COFFEES IS AN ARRAY OF OBJECTS WITH PROPERTIES OF ID, NAME, ROAST
 var coffees = [
@@ -24,32 +25,19 @@ var coffeeList = document.querySelector('#coffees');
 var searchBtn = document.querySelector('#search-btn');
 var roastSelection = document.querySelector('#roast-selection');
 var search = document.querySelector('#search');
-//var addRoast = document.querySelector('add-roast');
-//var addBtn = document.querySelector('#add-btn');
+var addBtn = document.querySelector('#add-btn');
+
+coffeeList.innerHTML = renderCoffees(coffees)
+searchBtn.addEventListener('click', updateCoffees);
+search.addEventListener('keyup', searchQuery);
+const dropDown = document.getElementById('roast-selection');
+dropDown.addEventListener('change', searchRoast)
+addBtn.addEventListener('click' , newCoffee);
+
 
 // renderCoffees(coffees);
 
-// COFFEES//
-/*
-function renderCoffee(coffee) {    //classList
-    var div = document.createElement('div');
-    var coffeeName = document.createElement('div');
-    var coffeeRoast = document.createElement('div');
-    coffeeName.innerText = coffee.name;
-    coffeeRoast.innerText = coffee.roast;
-    coffeeRoast.style.color = 'grey';
-    coffeeName.style.fontSize = '2em';
 
-    coffeeName.style.display = 'inline';
-    coffeeRoast.style.display = 'inline';
-
-    div.setAttribute('data-id', coffee.id);
-    div.appendChild(coffeeName);
-    div.appendChild(coffeeRoast);
-    return div;
-}
- */
-// STRING LITERAL ' ' IS THE STRING TEXT. $ IS THE START OF THE EXPRESSION.
 function renderCoffee(coffee) {
     return `<h3>${coffee.name}</h3> 
             <p>${coffee.roast}</p>`
@@ -64,6 +52,7 @@ function renderCoffee(coffee) {
 //     return html;
 // }
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
 // REDUCE - The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in single output value.
 // STRINGBUILDER - StringBuilder objects are like String objects, except that they can be modified. (NOTE STRINGBUILDER IS A JAVA CONCEPT THAT WE ARE MIMICKING HERE IN JS)
 function renderCoffees(coffees) {
@@ -106,39 +95,27 @@ function searchQuery(e) {
     const searchString = e.target.value;
     coffeeList.innerHTML = renderCoffees(filterByName(searchString))
 }
-// console.log(coffeeList);
-coffeeList.innerHTML = renderCoffees(coffees)
-searchBtn.addEventListener('click', updateCoffees);
-search.addEventListener('keyup', searchQuery);
-//addedCoffee.addEventListener('click' , )
-// FILTER ROAST SEARCH ///
-// WHEN ROAST IS SELECTED, WE NEED ONLY THE COFFEES IN THAT ROAST TO DISPLAY ON THE LEFT W/O HITTING SUBMIT
-//
-//dropdown.addEventListener('select', updateCoffees);
 function searchRoast(e) {
     const searchRoastString = e.target.value;
     coffeeList.innerHTML = renderCoffees(filterByRoast(searchRoastString))
 }
-const dropDown = document.getElementById('roast-selection');
-dropDown.addEventListener('change', searchRoast)
-    //console.log(event.target.value)
 
-// =================SECOND COFFEE SELECTION============================== //
-var addRoast = document.querySelector('add-roast');
-var addBtn = document.querySelector('#add-btn');
-
-function addCoffees(e) {   //same format for searching for name according to Zach
+function newCoffee(e){
     e.preventDefault();
-    var addedRoast = addRoast
-    var filteredCoffees;
-        if (addedRoast === 'All') {
-        filteredCoffees = coffees;
-    }else {
-        filteredCoffees = filterByRoast(addedRoast.toLowerCase())
-}
-coffeeList.innerHTML = renderCoffees(filteredCoffees);
+    let addedCoffee = document.querySelector('#addCoffeeName');
+    let addedRoast = document.querySelector('#add-roast')
+    let newobj = {
+        id: coffees.length + 1,
+        name: addedCoffee.value,
+        roast: addedRoast.value
+    }
+    coffees.unshift(newobj);
+    coffeeList.innerHTML = renderCoffees(coffees);
+    }
 
-}
+
+
+
 
 // HIDDEN MESSAGE IN CONSOLE //
 console.log('you found it! Enter CODE:TimeVortex in your cart to unlock our secret roast')
@@ -159,3 +136,20 @@ actualCoffeeArray.push({id: coffees.length + 1, name: coffeeName, roast: roastSe
 
 
 */
+/*
+function addCoffees(e) {   //same format for searching for name according to Zach
+    e.preventDefault();
+    var addedRoast = addRoast
+    var filteredCoffees;
+        if (addedRoast === 'All') {
+        filteredCoffees = coffees;
+    }else {
+        filteredCoffees = filterByRoast(addedRoast.toLowerCase())
+}
+
+
+coffeeList.innerHTML = renderCoffees(filteredCoffees);
+
+}
+
+ */
